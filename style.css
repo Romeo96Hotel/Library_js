@@ -3,12 +3,31 @@
   padding: 0;
 }
 
-.hidden {
-  display: none;
+form {
+  width: 500px;
+  background-color: aliceblue;
+  border: 2px sold blue;
+  text-align: center;
 }
 
-.visible {
-    display: block;
-    text-align: center;
-    
+form div {
+  padding: 10px;
+}
+
+.book-element {
+  display: flex;
+  margin-top: 5px;
+  background-color: aliceblue;
+  border: 5px solid blue;
+  width: 500px;
+  text-align: center;
+  font-weight: 900;
+  color: black;
+  justify-content: center;
+  justify-content: space-evenly;
+}
+
+.remove-button {
+  font-style: italic;
+  font-size: 1em;
 }

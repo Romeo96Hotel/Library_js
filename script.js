@@ -20,18 +20,51 @@ button is clicked
 
 */
 
+const library = document.querySelector("#library");
 
-class Book {
-    constructor() {
-      this.title = document.querySelector("#title");
-      this.author = document.querySelector("#author");
-      this.numberOfPages = ;
-  
-      this.isRead = false;
-    }
-  
-    getBookInfo = function () {
-      return `Title: ${this.title}, Author: ${this.author}, Number of pages: ${this.numberOfPages}, Is Read: ${this.isRead}`;
-    };
+const inputButton = document.querySelector("#submit");
+
+const createRemoveButton = () => {
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("remove-button");
+  removeButton.textContent = "remove";
+
+  return removeButton;
+};
+
+const createTextEl = (tag, text) => {
+  const element = document.createElement(tag);
+  element.classList.add("book-element");
+  element.innerHTML = text;
+
+  return element;
+};
+
+inputButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const myArray = [];
+
+  const bookInfo = {
+    title: document.querySelector("#title").value,
+    author: document.querySelector("#author").value,
+  };
+
+  const text = `Title: ${bookInfo.title}  Author: ${bookInfo.author}`;
+  const textEl = createTextEl("div", text);
+  const removeButton = createRemoveButton();
+
+  removeButton.addEventListener("click", (e) => {
+    const parent = e.target.parentNode;
+    library.removeChild(parent);
+  });
+
+  textEl.append(removeButton);
+
+  myArray.push(textEl);
+
+  for (let i = 0; i < myArray.length; i++) {
+    const bookEl = myArray[i];
+    library.appendChild(bookEl);
   }
-  
+});
